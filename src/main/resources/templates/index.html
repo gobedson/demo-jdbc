@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+ xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="layouts/main">
+<head>
+
+
+<title>Godson YEBADOKPO - Home page</title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<h2>About me</h2>
+		<div class="row">
+			<div class="col-md-12">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis nulla turpis, id euismod metus convallis eu. Vestibulum rhoncus efficitur nisi, a varius ante sollicitudin sed. Cras et purus lectus. Curabitur nisl nunc, aliquet molestie neque ac, dapibus hendrerit nunc. Donec vel scelerisque metus. Pellentesque id gravida risus. Vivamus tempor vel lectus eu accumsan. Quisque convallis dignissim tincidunt. Maecenas est erat, porttitor quis finibus a, varius et dolor. Vestibulum vulputate faucibus erat, mollis lacinia metus rhoncus eu. Proin quis lobortis lacus. Duis diam sapien, sodales quis pretium eu, tristique ut urna. Donec eget rhoncus arcu. Phasellus mattis erat lacus, in tristique nunc egestas vitae.</p>
+				<p>Aliquam id tristique ex, vel sollicitudin ante. Phasellus laoreet, mi in facilisis pharetra, dui dolor gravida quam, nec posuere neque risus eget lacus. Phasellus quis gravida metus. Nunc nec leo sapien. Vivamus auctor dictum ante ut dictum. Phasellus hendrerit eros sed enim tempor vehicula. Quisque commodo est mi, at bibendum quam auctor ut. Vestibulum quis enim volutpat magna gravida dictum. Suspendisse potenti. Aliquam erat volutpat. Aliquam tempus, nisl a sodales auctor, dui erat auctor dolor, quis facilisis urna leo sed ligula. Nunc massa erat, dapibus in ipsum ut, bibendum congue tellus. Sed sem felis, sodales eget interdum sit amet, iaculis ut lacus.</p>
+			</div>
+		</div>
+		<article>
+			<header>
+				<h2 th:text="${post.title}">title</h2>
+				<p th:text="${#calendars.format(post.postedOn,'dd/MM/yyyy hh:mm a')}">postedOn</p>
+			</header>
+			<section th:utext="${post.teaser}">teaser</section>
+			<footer>
+				<a th:href="@{/posts/${post.slug}}">Read More</a>
+				<address>
+					Posted By <a th:href="@{mailto:{post.author.email}}"><span
+						th:text="${post.author.firstName + ' ' + post.author.lastName}">author</span></a>
+				</address>
+			</footer>
+		</article>
+	</div>
+</body>
+</html>
